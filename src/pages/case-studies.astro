@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { site, caseStudiesPage, caseStudies as studies } from '../data/content';
+---
+
+<Layout title={`Case Studies — ${site.name}`}>
+  <Navbar />
+
+  <main>
+    <section class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">{caseStudiesPage.title}</h1>
+        <p class="page-subtitle">{caseStudiesPage.subtitle}</p>
+      </div>
+    </section>
+
+    <section class="studies-grid-section">
+      <div class="studies-inner">
+        <div class="studies-grid">
+          {studies.map(study => (
+            <a href={`/case-studies/${study.slug}`} class="tile">
+              <div class="tile-image-wrap">
+                <img
+                  src={study.image}
+                  alt={study.imageAlt}
+                  class="tile-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="tile-tags">{study.tags.map(t => <span class="tile-tag">{t}</span>)}</div>
+              </div>
+              <div class="tile-body">
+                <h2 class="tile-heading">{study.heading}</h2>
+                <p class="tile-subheading">{study.subheading}</p>
+                <span class="tile-cta">
+                  Read case study
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-top: 80px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+
+  .page-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .page-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  .page-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── Grid ── */
+  .studies-grid-section {
+    padding: 4rem 0 6rem;
+  }
+
+  .studies-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .studies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* ── Tile ── */
+  .tile {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(91, 91, 214, 0.12);
+  }
+
+  /* Image */
+  .tile-image-wrap {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .tile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .tile:hover .tile-image {
+    transform: scale(1.04);
+  }
+
+  .tile-image-wrap { display: flex; }
+
+  .tile-tags {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.375rem;
+    flex-wrap: wrap;
+  }
+
+  .tile-tag {
+    padding: 0.25rem 0.625rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--mono);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Body */
+  .tile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.5rem;
+    flex: 1;
+  }
+
+  .tile-heading {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+
+  .tile-subheading {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .tile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap 0.15s;
+  }
+
+  .tile:hover .tile-cta {
+    gap: 0.625rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .studies-grid {
+      grid-template-columns: 1fr;
+      max-width: 520px;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 900px) {
+    .studies-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 100%;
+    }
+
+    .studies-grid .tile:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 480px;
+      justify-self: center;
+    }
+  }
+</style>
