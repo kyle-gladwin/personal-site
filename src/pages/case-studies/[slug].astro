@@ -1,7 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
+import { Image } from 'astro:assets';
 import { site, caseStudies } from '../../data/content';
+
+const assetImages = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/*.{jpg,jpeg,png}', { eager: true });
+function getAssetImage(path: string): ImageMetadata | undefined {
+  const filename = path.split('/').pop();
+  return assetImages[`../../assets/images/${filename}`]?.default;
+}
 
 export function getStaticPaths() {
   return caseStudies.map(study => ({
@@ -39,7 +46,10 @@ const next = caseStudies[currentIndex + 1] ?? null;
         <p class="hero-sub">{study.subheading}</p>
       </div>
       <div class="hero-image-wrap">
-        <img src={study.image} alt={study.imageAlt} class="hero-image" />
+        {getAssetImage(study.image)
+          ? <Image src={getAssetImage(study.image)!} alt={study.imageAlt} width={1200} class="hero-image" />
+          : <img src={study.image} alt={study.imageAlt} class="hero-image" />
+        }
       </div>
     </section>
 

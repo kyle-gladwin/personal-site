@@ -14,7 +14,10 @@
       "Bash(/tmp/gifenv/bin/python3 - << 'EOF'\nfrom PIL import Image\nimport os\n\nsrc = \"/Users/jamiedavies/Downloads/Sign up _ create account \\(1\\)/\"\nout = \"/Users/jamiedavies/Downloads/personalsite/public/images/kiosk-code-flow.gif\"\nfiles = sorted\\([src + f for f in os.listdir\\(src\\) if f.endswith\\('.png'\\) or f.endswith\\('.jpg'\\)]\\)\n\ntarget_w = 900\nframes = []\nfor f in files:\n    im = Image.open\\(f\\).convert\\(\"RGB\"\\)\n    ratio = target_w / im.width\n    im = im.resize\\(\\(target_w, int\\(im.height * ratio\\)\\), Image.LANCZOS\\)\n    frames.append\\(im\\)\n\nmin_h = min\\(f.height for f in frames\\)\nframes = [f.crop\\(\\(0, 0, target_w, min_h\\)\\) for f in frames]\n\nframes[0].save\\(\n    out,\n    save_all=True,\n    append_images=frames[1:],\n    duration=1000,\n    loop=0,\n    optimize=False,\n\\)\nprint\\(f\"Saved {out}  \\({len\\(frames\\)} frames, {os.path.getsize\\(out\\) // 1024}kb\\)\"\\)\nEOF)",
       "Bash(gh repo list jamiedavies --limit 20 2>/dev/null || gh repo list --limit 20 2>/dev/null)",
       "Bash(git -C /Users/jamiedavies/Downloads/personalsite status 2>&1)",
-      "Bash(git init && git add . && git commit -m \"Initial commit\")"
+      "Bash(git init && git add . && git commit -m \"Initial commit\")",
+      "Bash(git branch -m main && git remote add origin https://github.com/kyle-gladwin/personal-site.git)",
+      "Bash(git push -u origin main 2>&1)",
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite add .)"
     ]
   }
 }

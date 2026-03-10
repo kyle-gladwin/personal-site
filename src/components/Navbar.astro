@@ -1,5 +1,5 @@
 ---
-import { site, vibeCodingLinks } from '../data/content';
+import { site, nav, vibeCodingLinks } from '../data/content';
 const vibeCoding = vibeCodingLinks;
 ---
 
@@ -14,12 +14,12 @@ const vibeCoding = vibeCodingLinks;
     <!-- Nav links -->
     <ul class="nav-links" role="list">
       <li class="nav-item">
-        <a href="/case-studies" class="nav-trigger">Recent work</a>
+        <a href={nav.recentWork.href} class="nav-trigger">{nav.recentWork.label}</a>
       </li>
 
       <li class="nav-item has-dropdown">
         <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
-          AI Projects
+          {nav.aiProjects.label}
           <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -36,13 +36,13 @@ const vibeCoding = vibeCodingLinks;
       </li>
 
       <li class="nav-item">
-        <a href={site.linkedInHref} target="_blank" rel="noopener noreferrer" class="nav-trigger">LinkedIn</a>
+        <a href={site.linkedInHref} target="_blank" rel="noopener noreferrer" class="nav-trigger">{nav.linkedIn.label}</a>
       </li>
       <li class="nav-item">
-        <a href={site.cvHref} target="_blank" rel="noopener noreferrer" class="nav-trigger">My CV</a>
+        <a href={site.cvHref} target="_blank" rel="noopener noreferrer" class="nav-trigger">{nav.cv.label}</a>
       </li>
       <li class="nav-item">
-        <a href={`mailto:${site.email}`} class="nav-cta">Email me</a>
+        <a href={`mailto:${site.email}`} class="nav-cta">{nav.cta.label}</a>
       </li>
     </ul>
 
@@ -57,22 +57,22 @@ const vibeCoding = vibeCodingLinks;
 <div class="mobile-menu" aria-hidden="true">
   <ul role="list">
     <li>
-      <a href="/case-studies" class="mobile-link">Recent work</a>
+      <a href={nav.recentWork.href} class="mobile-link">{nav.recentWork.label}</a>
     </li>
     <li class="mobile-section">
-      <span class="mobile-heading">AI Projects</span>
+      <span class="mobile-heading">{nav.aiProjects.label}</span>
       {vibeCoding.map(item => (
         <a href={item.href} class="mobile-link">{item.label}</a>
       ))}
     </li>
     <li>
-      <a href={site.linkedInHref} target="_blank" rel="noopener noreferrer" class="mobile-link">LinkedIn</a>
+      <a href={site.linkedInHref} target="_blank" rel="noopener noreferrer" class="mobile-link">{nav.linkedIn.label}</a>
     </li>
     <li>
-      <a href={site.cvHref} target="_blank" rel="noopener noreferrer" class="mobile-link">My CV</a>
+      <a href={site.cvHref} target="_blank" rel="noopener noreferrer" class="mobile-link">{nav.cv.label}</a>
     </li>
     <li>
-      <a href={`mailto:${site.email}`} class="mobile-cta">Email me</a>
+      <a href={`mailto:${site.email}`} class="mobile-cta">{nav.cta.label}</a>
     </li>
   </ul>
 </div>

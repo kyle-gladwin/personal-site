@@ -1,7 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import { Image } from 'astro:assets';
 import { site, caseStudiesPage, caseStudies as studies } from '../data/content';
+
+const assetImages = import.meta.glob<{ default: ImageMetadata }>('../assets/images/*.{jpg,jpeg,png}', { eager: true });
+function getAssetImage(path: string): ImageMetadata | undefined {
+  const filename = path.split('/').pop();
+  return assetImages[`../assets/images/${filename}`]?.default;
+}
 ---
 
 <Layout title={`Case Studies — ${site.name}`}>
@@ -21,13 +28,10 @@ import { site, caseStudiesPage, caseStudies as studies } from '../data/content';
           {studies.map(study => (
             <a href={`/case-studies/${study.slug}`} class="tile">
               <div class="tile-image-wrap">
-                <img
-                  src={study.image}
-                  alt={study.imageAlt}
-                  class="tile-image"
-                  loading="lazy"
-                  decoding="async"
-                />
+                {getAssetImage(study.image)
+                  ? <Image src={getAssetImage(study.image)!} alt={study.imageAlt} width={600} class="tile-image" loading="lazy" />
+                  : <img src={study.image} alt={study.imageAlt} class="tile-image" loading="lazy" decoding="async" />
+                }
                 <div class="tile-tags">{study.tags.map(t => <span class="tile-tag">{t}</span>)}</div>
               </div>
               <div class="tile-body">
@@ -89,6 +93,7 @@ import { site, caseStudiesPage, caseStudies as studies } from '../data/content';
     color: var(--text-secondary);
     max-width: 520px;
     line-height: 1.7;
+    white-space: nowrap;
   }
 
   /* ── Grid ── */
