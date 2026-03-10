@@ -62,7 +62,7 @@ export const hero = {
 export const terminalCard = {
   role:       'Product Manager',
   experience: '10+ years',
-  focus:      ['data-driven development', 'stakeholder alignment', 'social impact'],
+  keySkills:  ['scaling & growth', 'data-driven development', 'stakeholder alignment','b2b & b2c products'],
   available:  true,
 };
 

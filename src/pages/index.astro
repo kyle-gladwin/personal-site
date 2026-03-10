@@ -48,6 +48,7 @@ const headlineParts = hero.headline
         <div class="hero-actions">
           <a href={hero.secondaryCta.href} class="btn-primary">{hero.secondaryCta.label}</a>
           <a href={site.cvHref} target="_blank" rel="noopener noreferrer" class="btn-ghost">My CV</a>
+          <a href={site.linkedInHref} target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
         </div>
       </div>
 
@@ -61,10 +62,10 @@ const headlineParts = hero.headline
         </div>
         <pre class="terminal-body"><code><span class="t-brace">&#123;</span>
   <span class="t-key">"name"</span>: <span class="t-str">"{site.name}"</span>,
-  <span class="t-key">"experience"</span>: <span class="t-str">"{terminalCard.experience}"</span>,
   <span class="t-key">"role"</span>: <span class="t-str">"{terminalCard.role}"</span>,
-  <span class="t-key">"focus"</span>: [
-    {terminalCard.focus.map((f, i) => <><span class="t-str">"{f}"</span>{i < terminalCard.focus.length - 1 ? ',' : ''}{'\n    '}</>)}
+  <span class="t-key">"experience"</span>: <span class="t-str">"{terminalCard.experience}"</span>,
+  <span class="t-key">"specialities"</span>: [
+    {terminalCard.keySkills.map((f, i) => <><span class="t-str">"{f}"</span>{i < terminalCard.keySkills.length - 1 ? <>,{'\n    '}</> : ''}</>)}
   ],
   <span class="t-key">"available"</span>: <span class="t-bool">{String(terminalCard.available)}</span>
 <span class="t-brace">&#125;</span></code></pre>

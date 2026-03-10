@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44">
+  <rect width="44" height="44" rx="10" fill="#5b5bd6"/>
+  <text
+    x="22"
+    y="30"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="14"
+    font-weight="700"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="0.05em"
+  >KG</text>
+</svg>

@@ -17,7 +17,9 @@
       "Bash(git init && git add . && git commit -m \"Initial commit\")",
       "Bash(git branch -m main && git remote add origin https://github.com/kyle-gladwin/personal-site.git)",
       "Bash(git push -u origin main 2>&1)",
-      "Bash(git -C /Users/jamiedavies/Downloads/personalsite add .)"
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite add .)",
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"various copy changes and reduce image file sizes for thumbnails\")",
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite push)"
     ]
   }
 }
