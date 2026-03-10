@@ -9,7 +9,7 @@ export const site = {
   name:     'Kyle Gladwin',
   initials: 'KG',
   email:    'ktgladwin@gmail.com',
-  title:    'Kyle Gladwin - Product Manager',
+  title:    'Kyle Gladwin | Product Manager',
   cvHref:       'https://drive.google.com/file/d/1G55vIIqyPzO9YxE_9CJT_RvRbonORs-_/view?usp=sharing',
   linkedInHref: 'https://www.linkedin.com/in/kyle-gladwin-ab75a975/',
 };

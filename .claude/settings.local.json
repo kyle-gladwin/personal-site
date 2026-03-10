@@ -21,7 +21,8 @@
       "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"various copy changes and reduce image file sizes for thumbnails\")",
       "Bash(git -C /Users/jamiedavies/Downloads/personalsite push)",
       "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"copy changes\")",
-      "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"adds GA tracking\")"
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"adds GA tracking\")",
+      "Bash(git -C /Users/jamiedavies/Downloads/personalsite commit -m \"opens AI projects in new tabs\")"
     ]
   }
 }
