@@ -28,7 +28,7 @@ const vibeCoding = vibeCodingLinks;
           <div class="dropdown-inner">
             <ul role="list">
               {vibeCoding.map(item => (
-                <li><a href={item.href} class="dropdown-item">{item.label}</a></li>
+                <li><a href={item.href} target="_blank" rel="noopener noreferrer" class="dropdown-item">{item.label}</a></li>
               ))}
             </ul>
           </div>
@@ -62,7 +62,7 @@ const vibeCoding = vibeCodingLinks;
     <li class="mobile-section">
       <span class="mobile-heading">{nav.aiProjects.label}</span>
       {vibeCoding.map(item => (
-        <a href={item.href} class="mobile-link">{item.label}</a>
+        <a href={item.href} target="_blank" rel="noopener noreferrer" class="mobile-link">{item.label}</a>
       ))}
     </li>
     <li>
