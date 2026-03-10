@@ -47,7 +47,7 @@ export const hero = {
   role:       'Product Manager',
 
   // Wrap words in <em> to make them bold/highlighted
-  summary:    `Most recently, I've been leading Product strategy at <a href="https://libraryofthings.co.uk/" target="_blank" rel="noopener noreferrer">Library of Things</a>. You can find some of the stuff I've helped build <a href="/case-studies">here</a>.<br><br>I've been working on some AI/Claude Code projects too - you can see them <a href="https://chess-openings-explorer.kyleglad.win/" target="_blank" rel="noopener noreferrer">here</a> and <a href="https://gozleme-finder.kyleglad.win/" target="_blank" rel="noopener noreferrer">here</a>.`,
+  summary:    `Most recently, I've been leading the Product function at <a href="https://libraryofthings.co.uk/" target="_blank" rel="noopener noreferrer">Library of Things</a>. You can find some of the stuff I've helped build <a href="/case-studies">here</a>.<br><br>I've been working on AI/Claude Code projects too - you can see them <a href="https://chess-openings-explorer.kyleglad.win/" target="_blank" rel="noopener noreferrer">here</a> and <a href="https://gozleme-finder.kyleglad.win/" target="_blank" rel="noopener noreferrer">here</a>.`,
 
   stats: [
     { num: '10+',  label: 'Years in PM' },
